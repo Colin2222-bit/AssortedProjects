@@ -135,22 +135,22 @@ intercept = model.intercept_
 print(f"Slope: {slope}, Intercept: {intercept}")
 r_sq = model.score(X, nmmin)
 print(f"R-squared: {r_sq}")
-list = [‘idavgmask’, ‘idminmask’, ‘idfreezemask’]
-for temp in list:
-pearsoncorrnm, pearsonpnm = pearsonr(yearly_counts, list)
-print(f"pearson for avg: {pearsoncorrnm}, p-value avg: {pearsonpnm}")
+idalist = [‘idavgmask’, ‘idminmask’, ‘idfreezemask’]
+for temp in idalist:
+    pearsoncorrnm, pearsonpnm = pearsonr(yearly_counts, list)
+    print(f"pearson for avg: {pearsoncorrnm}, p-value avg: {pearsonpnm}")
+    
+    spearmancorr, spearmanp = spearmanr(yearly_counts, idavgmask)
+    print(f"Spearman correlation: {spearmancorr:.3f}, p-value: {spearmanp:.3f}")
+    
+    list2 = ['nm[‘TAVG']', 'nm['TMIN']', 'nm['DX32']']
 
-spearmancorr, spearmanp = spearmanr(yearly_counts, idavgmask)
-print(f"Spearman correlation: {spearmancorr:.3f}, p-value: {spearmanp:.3f}")
-
-List2 = [‘nm[‘TAVG']’, ‘nm[‘TMIN']’, ‘nm[‘DX32']’]
-
-For var in list2:
-pearsoncorr, pearsonp = pearsonr(nmyc, var)
-print(f"pearson for avg: {pearsoncorr}, p-value avg: {pearsonp}")
-
-spearmancorr, spearmanp = spearmanr(nmyc, var)
-print(f"Spearman correlation: {spearmancorr:.3f}, p-value: {spearmanp:.3f}")
+for var in list2:
+    pearsoncorr, pearsonp = pearsonr(nmyc, var)
+    print(f"pearson for avg: {pearsoncorr}, p-value avg: {pearsonp}")
+    
+    spearmancorr, spearmanp = spearmanr(nmyc, var)
+    print(f"Spearman correlation: {spearmancorr:.3f}, p-value: {spearmanp:.3f}")
 
 
 
